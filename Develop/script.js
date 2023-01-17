@@ -25,3 +25,19 @@ function setBlockColour() {
   //create for loop to assign colour
   for (let index = 0; index < timeblocks.length; index++) {
     const currentTimeblock = $("#" + timeblocks[index].id);
+
+    if (currentTimeblock.data("hour") == time) {
+      currentTimeblock.addClass("present");
+    } else if (currentTimeblock.data("hour") < time) {
+      currentTimeblock.addClass("past");
+    } else if (currentTimeblock.data("hour") > time) {
+      currentTimeblock.addClass("future");
+    }
+  }
+}
+
+function displayTime() {
+  setBlockColour();
+}
+
+displayTime();
