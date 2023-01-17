@@ -12,3 +12,16 @@ const displayMinute = $("#minutes");
 const headerTime = dayjs();
 const headerDate = displayHour.html(headerTime.$H);
 displayMinute.html(headerTime.$m);
+
+const time = dayjs().format("HH");
+
+// TODO: Add code to apply the past, present, or future class to each time
+// block by comparing the id to the current hour. HINTS: How can the id
+// attribute of each time-block be used to conditionally add or remove the
+// past, present, and future classes? How can Day.js be used to get the
+// current hour in 24-hour time?
+function setBlockColour() {
+  const timeblocks = $(".time-block");
+  //create for loop to assign colour
+  for (let index = 0; index < timeblocks.length; index++) {
+    const currentTimeblock = $("#" + timeblocks[index].id);
