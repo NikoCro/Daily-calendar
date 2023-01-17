@@ -47,3 +47,14 @@ $(".saveBtn").click(function () {
   let textValue = this.parentElement.children[1].value;
   localStorage.setItem([hour], textValue);
 });
+
+function checkContainers() {
+  let timeContainers = $("#timecontainer").children();
+  for (let i = 0; i < timeContainers.length; i++) {
+    let value = timeContainers[i].dataset.hour;
+    if (localStorage.getItem(value)) {
+      timeContainers[i].children[1].value = localStorage.getItem(value);
+    }
+  }
+}
+checkContainers();
