@@ -34,3 +34,9 @@ function setBlockColour() {
 function displayTime() {
   setBlockColour();
 }
+
+$(".saveBtn").click(function () {
+  let hour = this.parentElement.dataset.hour;
+  let textValue = this.parentElement.children[1].value;
+  localStorage.setItem([hour], textValue);
+});
