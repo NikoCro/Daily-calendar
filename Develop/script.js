@@ -12,3 +12,25 @@ const headerDate = displayHour.html(headerTime.$H);
 displayMinute.html(headerTime.$m);
 
 const time = dayjs().format("HH");
+
+display time()
+
+function setBlockColour() {
+  const timeblocks = $(".time-block");
+  //create for loop to assign colour
+  for (let index = 0; index < timeblocks.length; index++) {
+    const currentTimeblock = $("#" + timeblocks[index].id);
+
+    if (currentTimeblock.data("hour") == time) {
+      currentTimeblock.addClass("present");
+    } else if (currentTimeblock.data("hour") < time) {
+      currentTimeblock.addClass("past");
+    } else if (currentTimeblock.data("hour") > time) {
+      currentTimeblock.addClass("future");
+    }
+  }
+}
+
+function displayTime() {
+  setBlockColour();
+}
